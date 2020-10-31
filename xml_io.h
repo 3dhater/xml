@@ -628,6 +628,18 @@ struct kkXMLNode{
 		}
 		return nullptr;
 	}
+	kkArray<kkXMLNode*>	getNodes( const kkXMLString& Name ){
+		kkArray<kkXMLNode*> arr;
+		unsigned int sz = (unsigned int)nodeList.size();
+		for( unsigned int i = 0; i < sz; ++i ){
+			auto node = nodeList[ i ];
+			if( node->name == Name )
+			{
+				arr.push_back(node);
+			}
+		}
+		return arr;
+	}
 	void clear(){
 		name.clear();
 		text.clear();
